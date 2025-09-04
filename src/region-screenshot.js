@@ -656,9 +656,12 @@ class Tools extends Base {
   getOriginImg() {
     let { startX, startY, endX, endY } = this.region
     let canvas = document.createElement('canvas')
-    canvas.width = Math.max(endX - startX, 1)
-    canvas.height = Math.max(endY - startY, 1)
+    canvas.width = Math.max((endX - startX) * this.dpr, 1)
+    canvas.height = Math.max((endY - startY) * this.dpr, 1)
+    canvas.style.width = `${endX - startX}px`
+    canvas.style.height = `${endY - startY}px`
     let ctx = canvas.getContext('2d')
+    ctx.scale(this.dpr, this.dpr)
     ctx.drawImage(this.screenshot, -startX, -startY, innerWidth, innerHeight)
     return canvas
   }
@@ -1100,11 +1103,13 @@ class Tools extends Base {
     this.drawHistory.pop()
     this.drawHistory.length && this.ctx.drawImage(this.drawHistory.at(-1), 0, 0)
   }
+  // 生成截图
   async screenshotGenerate() {
     if (this.drawTextActivity) {
       await this.drawTextActivity()
     }
     let canvas = this.getOriginImg()
+    console.log(canvas)
     let ctx = canvas.getContext('2d')
     if (this.canvas) {
       ctx.drawImage(this.canvas, 0, 0, this.canvas.width, this.canvas.height)
