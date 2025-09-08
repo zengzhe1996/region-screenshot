@@ -1,7 +1,7 @@
 {
-  "name": "region-screenshot-js",
+  "name": "region-screenshot-retina-js",
   "version": "1.1.0",
-  "description": "A web-based selection screenshot plugin that helps you quickly build a beautiful and functional screenshot selection feature. ",
+  "description": "一款基于web的截图选择插件，能帮助您快速构建一个美观且实用的截图选择功能，支持了高分屏。",
   "main": "dist/region-screenshot.umd.js",
   "module": "dist/region-screenshot.mjs",
   "files": [
@@ -22,10 +22,8 @@
     "type": "git",
     "url": "https://github.com/weijun-lab/region-screenshot-js"
   },
-  "author": "Jun Wei",
+  "author": "zengzhe",
   "license": "MIT",
-
-
   "devDependencies": {
     "dom-to-image": "^2.6.0",
     "sass": "^1.76.0",

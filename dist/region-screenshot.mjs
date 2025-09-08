@@ -4461,7 +4461,7 @@ class Gi extends fn {
   }
   getOriginImg() {
     let { startX: a, startY: d, endX: C, endY: k } = this.region, x = document.createElement("canvas");
-    x.width = Math.max(C - a, 1), x.height = Math.max(k - d, 1), x.style.width = `${C - a}px`, x.style.height = `${k - d}px`;
+    x.width = Math.max((C - a) * this.dpr, 1), x.height = Math.max((k - d) * this.dpr, 1), x.style.width = `${C - a}px`, x.style.height = `${k - d}px`;
     let R = x.getContext("2d");
     return R.scale(this.dpr, this.dpr), R.drawImage(this.screenshot, -a, -d, innerWidth, innerHeight), x;
   }
